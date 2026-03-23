@@ -41,6 +41,21 @@ class EditorProvider extends ChangeNotifier {
     }
   }
 
+  /// TAKE PHOTO FROM CAMERA
+  Future<void> takePhoto() async {
+
+    final picker = ImagePicker();
+
+    final picked = await picker.pickImage(
+      source: ImageSource.camera,
+    );
+
+    if (picked != null) {
+      image = File(picked.path);
+      notifyListeners();
+    }
+  }
+
   /// SET FRAME
   void setFrame(String framePath) {
     frame = framePath;

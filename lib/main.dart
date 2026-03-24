@@ -26,15 +26,44 @@ class MyApp extends StatelessWidget {
       title: "Tết Photo Booth",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
         scaffoldBackgroundColor: const Color(0xFF8B0000),
+        
+        fontFamily: 'Serif',
+
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          centerTitle: true,
+          iconTheme: IconThemeData(color: Colors.yellow),
           titleTextStyle: TextStyle(
             color: Colors.yellow,
-            fontSize: 24,
+            fontSize: 18, // GIẢM SIZE ĐỂ KHÔNG BỊ TRÀN
             fontWeight: FontWeight.bold,
+            fontFamily: 'Serif',
+          ),
+        ),
+
+        snackBarTheme: const SnackBarThemeData(
+          contentTextStyle: TextStyle(
+            fontFamily: 'Serif',
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
+        dialogTheme: const DialogThemeData(
+          titleTextStyle: TextStyle(
+            fontFamily: 'Serif',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.red,
+          ),
+          contentTextStyle: TextStyle(
+            fontFamily: 'Serif',
+            fontSize: 14,
+            color: Colors.black87,
           ),
         ),
       ),

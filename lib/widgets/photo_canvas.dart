@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:screenshot/screenshot.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../providers/editor_provider.dart';
 import '../models/sticker_model.dart';
 import '../models/text_model.dart';
@@ -158,7 +159,7 @@ class _PhotoCanvasState extends State<PhotoCanvas> {
                   left: text.position.dx,
                   top: text.position.dy,
                   child: GestureDetector(
-                    behavior: HitTestBehavior.opaque, // Đảm bảo bắt được sự kiện nhấn vào text
+                    behavior: HitTestBehavior.opaque,
                     onLongPress: () {
                       setState(() {
                         selectedItem = text;
@@ -176,10 +177,11 @@ class _PhotoCanvasState extends State<PhotoCanvas> {
                         Transform.scale(
                           scale: text.scale,
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0), // Tạo vùng chạm rộng hơn
+                            padding: const EdgeInsets.all(10.0),
                             child: Text(
                               text.text,
-                              style: TextStyle(
+                              style: GoogleFonts.getFont(
+                                text.fontFamily ?? 'Dancing Script',
                                 fontSize: 32,
                                 color: text.color,
                                 fontWeight: FontWeight.bold,
@@ -192,7 +194,7 @@ class _PhotoCanvasState extends State<PhotoCanvas> {
                             top: -15,
                             right: -15,
                             child: GestureDetector(
-                              behavior: HitTestBehavior.opaque, // Ưu tiên xử lý sự kiện tap cho nút X
+                              behavior: HitTestBehavior.opaque,
                               onTap: () {
                                 provider.removeText(text);
                                 setState(() {

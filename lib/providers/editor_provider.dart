@@ -20,6 +20,15 @@ class EditorProvider extends ChangeNotifier {
 
   List<TextModel> texts = [];
 
+  /// RESET EDITOR
+  void resetEditor() {
+    image = null;
+    frame = null;
+    stickers.clear();
+    texts.clear();
+    notifyListeners();
+  }
+
   /// SET IMAGE
   void setImage(File img) {
     image = img;
@@ -36,6 +45,7 @@ class EditorProvider extends ChangeNotifier {
     );
 
     if (picked != null) {
+      resetEditor(); // Xóa các hiệu ứng cũ khi chọn ảnh mới
       image = File(picked.path);
       notifyListeners();
     }
@@ -51,6 +61,7 @@ class EditorProvider extends ChangeNotifier {
     );
 
     if (picked != null) {
+      resetEditor(); // Xóa các hiệu ứng cũ khi chụp ảnh mới
       image = File(picked.path);
       notifyListeners();
     }
@@ -69,11 +80,12 @@ class EditorProvider extends ChangeNotifier {
   }
 
   /// ADD TEXT
-  void addText(String text, Color color) {
+  void addText(String text, Color color, String? fontFamily) {
     texts.add(
       TextModel(
         text: text,
         color: color,
+        fontFamily: fontFamily,
       ),
     );
     notifyListeners();

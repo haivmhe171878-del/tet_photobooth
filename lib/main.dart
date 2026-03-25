@@ -23,47 +23,50 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Tết Photo Booth",
+      title: "Tết Bính Ngọ 2026",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        scaffoldBackgroundColor: const Color(0xFF8B0000),
-        
         fontFamily: 'Serif',
-
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF8B0000),
+          primary: const Color(0xFFB71C1C),
+          secondary: const Color(0xFFE6A317), 
+        ),
+        scaffoldBackgroundColor: const Color(0xFF640D14), // Đỏ đô thẫm
+        
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.yellow),
+          iconTheme: IconThemeData(color: Color(0xFFFFD700)),
           titleTextStyle: TextStyle(
-            color: Colors.yellow,
-            fontSize: 18, // GIẢM SIZE ĐỂ KHÔNG BỊ TRÀN
+            color: Color(0xFFFFD700),
+            fontSize: 22,
             fontWeight: FontWeight.bold,
             fontFamily: 'Serif',
+            letterSpacing: 1.2,
           ),
         ),
 
         snackBarTheme: const SnackBarThemeData(
+          backgroundColor: Color(0xFF4A0404),
           contentTextStyle: TextStyle(
             fontFamily: 'Serif',
-            fontSize: 14,
+            fontSize: 15,
+            color: Color(0xFFFFD700),
             fontWeight: FontWeight.bold,
           ),
+          behavior: SnackBarBehavior.floating,
         ),
 
         dialogTheme: const DialogThemeData(
+          backgroundColor: Color(0xFFFFFDE7),
           titleTextStyle: TextStyle(
             fontFamily: 'Serif',
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.red,
-          ),
-          contentTextStyle: TextStyle(
-            fontFamily: 'Serif',
-            fontSize: 14,
-            color: Colors.black87,
+            color: Color(0xFFB71C1C),
           ),
         ),
       ),
